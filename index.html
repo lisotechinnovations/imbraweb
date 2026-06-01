@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LISOTECH INNOVATIONS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #020817;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #0066ff;
+      --secondary: #0f172a;
+      --card: #0b1220;
+      --text: #e2e8f0;
+      --light: #1e293b;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(2, 8, 23, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 8%;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 15px;
+    }
+
+    nav ul li a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,102,255,0.4);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 8% 50px;
+      background: linear-gradient(to right, rgba(2,8,23,0.95), rgba(2,8,23,0.8)), url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #94a3b8;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0,102,255,0.5);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+
+    .service-card h3 {
+      margin-bottom: 15px;
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .service-card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .booking {
+      background: linear-gradient(to right, #0f172a, #020617);
+      border-radius: 30px;
+    }
+
+    .booking-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
+
+    .booking-form {
+      background: rgba(255,255,255,0.03);
+      padding: 35px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .booking-form h3 {
+      margin-bottom: 25px;
+      font-size: 28px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      width: 100%;
+      padding: 14px;
+      background: #0f172a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      color: white;
+      outline: none;
+    }
+
+    .payment-boxes {
+      display: grid;
+      gap: 20px;
+    }
+
+    .payment-box {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .payment-box h3 {
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .contact-card {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    footer {
+      background: #020617;
+      padding: 40px 8%;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    footer p {
+      color: #94a3b8;
+    }
+
+    .mobile-menu {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media(max-width: 900px) {
+      nav ul {
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        background: #020817;
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 0;
+        transition: 0.4s;
+      }
+
+      nav ul.active {
+        left: 0;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo">LISOTECH <spam> INNOVATIONS</spam></div>
+
+    <nav>
+      <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="mobile-menu" onclick="toggleMenu()">☰</div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>Modern Business Solutions <span>For Zambia</span></h1>
+
+    <p>
+      LISOTECH INNOVATIONS offers professional business registration,
+      compliance services, tax returns, websites, company profiles,
+      and online business solutions.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#services" class="btn">View Services</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-title">
+    <h2>Our Services</h2>
+    <p>Professional registration and compliance solutions</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <h3>Limited Company Registration</h3>
+      <p>Fast and professional company registration services in Zambia.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>PACRA Business Registration</h3>
+      <p>Complete PACRA registration and documentation support.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>ZPPA Registration & Renewal</h3>
+      <p>Professional assistance with ZPPA registration and renewals.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>NAPSA Registration & Returns</h3>
+      <p>Secure and reliable NAPSA processing services.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>ZRA Registration & Returns</h3>
+      <p>Support for TOT and PAYE tax returns and registration.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Worker's Compensation</h3>
+      <p>Registration and renewal assistance for worker compliance.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>NHIMA Registration & Returns</h3>
+      <p>Quick and accurate NHIMA compliance solutions.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Company Email & Profiles</h3>
+      <p>Professional branding services for your company identity.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Business Websites</h3>
+      <p>Modern websites with excellent features.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-title">
+    <h2>Contact Us</h2>
+    <p>Reach us anytime for support and inquiries</p>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-card">
+      <h3>  Chat With Us</h3>
+      <p> <a
+          href="https://wa.me/260974101130"
+          class="btn"
+        >
+          WhatsApp
+        </a></p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Email Address</h3>
+      <p>lisotech@yahoo.com</p>
+    </div>
+
+    <div class="contact-card">
+      <h3>Location</h3>
+      <p>Lusaka,Zambia</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>
+    © 2026 LISOTECH INNOVATIONS. All Rights Reserved.
+  </p>
+</footer>
+
+<script>
+
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('active');
+  }
+
+  document.getElementById('bookingForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    alert('Appointment booking submitted successfully!');
+  });
+
+</script>
+
+</body>
+</html>
